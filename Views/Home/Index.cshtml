@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<TodoList.Models.TaskModel>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to my first ASP.NET app!</h1>
+    <p>I plan to evolve much more in ASP.NET. Keep studying guys! =D</p>
+</div>
+
+<div>
+
+    @if (Model.Count > 0)
+    {
+        <h4 class="text-center mb-3">Latest tasks</h4>
+
+        <div class="list-group">
+            @foreach (var task in Model)
+            {
+                @if (task.Done)
+                {
+                    <a class="mb-3 list-group-item list-group-action list-group-item-success" asp-action="Edit"
+            asp-controller="Tasks" asp-route-id="@task.Id">@task.Title</a>
+                }
+
+                else
+                {
+                    <a class="mb-3 list-group-item list-group-action list-group-item-danger" asp-action="Edit"
+            asp-controller="Tasks" asp-route-id="@task.Id">@task.Title</a>
+                }
+            }
+        </div>
+    }
+
+</div>

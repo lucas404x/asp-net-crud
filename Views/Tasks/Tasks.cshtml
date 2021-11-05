@@ -1,0 +1,14 @@
+@model TodoList.ViewModels.TasksViewModel
+
+<div class="list-group">
+
+    @foreach (var task in Model.Tasks)
+    {
+        <div class="row mb-4 align-items-center">
+            <div class="col">
+                <a class="list-group-item list-group-item-action" asp-action="Edit" asp-controller="Tasks" asp-route-id="@task.Id" >@Html.DisplayFor(_ => task.Title)</a>
+            </div>
+        </div>
+    }
+
+</div>
